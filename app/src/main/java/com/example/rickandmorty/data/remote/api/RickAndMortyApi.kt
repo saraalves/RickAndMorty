@@ -1,10 +1,17 @@
 package com.example.rickandmorty.data.remote.api
 
-//import com.picpay.desafio.android.data.remote.model.UserResponse
-//import retrofit2.http.GET
+import com.example.rickandmorty.data.remote.model.response.allCharacters.AllCharacterResponse
+import com.example.rickandmorty.data.remote.model.response.location.LocationResponse
+import retrofit2.http.GET
 
-//interface RickAndMortyApi {
-//
-//    @GET("users")
-//    suspend fun getUsers(): List<UserResponse>
-//}
+interface RickAndMortyApi {
+
+    @GET("character")
+    suspend fun getAllCharacter(): List<AllCharacterResponse>
+
+    @GET("location")
+    suspend fun getLocation(): List<LocationResponse>
+
+
+
+}

@@ -62,6 +62,10 @@ dependencies {
     implementation "com.squareup.okhttp3:mockwebserver:4.3.1"
     implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.5.1")
 
+    implementation "io.insert-koin:koin-core:3.4.2"
+    implementation "io.insert-koin:koin-android:3.4.2"
+    implementation "io.insert-koin:koin-androidx-viewmodel:3.4.2"
+
     implementation 'androidx.core:core-ktx:1.10.1'
     implementation platform('org.jetbrains.kotlin:kotlin-bom:1.8.0')
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
@@ -78,4 +82,12 @@ dependencies {
     androidTestImplementation 'androidx.compose.ui:ui-test-junit4'
     debugImplementation 'androidx.compose.ui:ui-tooling'
     debugImplementation 'androidx.compose.ui:ui-test-manifest'
+
+    // Koin Test features
+    testImplementation "io.insert-koin:koin-test:3.4.2"
+    // Koin for JUnit 4
+    testImplementation "io.insert-koin:koin-test-junit4:3.4.2"
+    // Koin for JUnit 5
+    testImplementation "io.insert-koin:koin-test-junit5:3.4.2"
+
 }

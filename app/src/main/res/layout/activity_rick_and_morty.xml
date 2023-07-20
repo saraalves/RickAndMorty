@@ -21,7 +21,6 @@
             android:layout_height="64dp"
             android:verticalScrollbarPosition="defaultPosition"
             app:tabBackground="@drawable/capsule_shape"
-            app:tabInLineLabel="true"
             app:tabIndicator="@drawable/capsule_shape"
             app:tabIndicatorFullWidth="true">
 

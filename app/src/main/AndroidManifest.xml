@@ -13,7 +13,7 @@
         android:theme="@style/Theme.AppCompat"
         tools:targetApi="31">
         <activity
-            android:name="com.example.rickandmorty.RickAndMortyActivity"
+            android:name="com.example.rickandmorty.presentation.RickAndMortyActivity"
             android:exported="true"
             android:label="@string/app_name"
             android:theme="@style/Theme.AppCompat">

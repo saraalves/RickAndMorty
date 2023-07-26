@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/RickAndMortyActivity"
-    tools:context="com.example.rickandmorty.RickAndMortyActivity">
+    tools:context="com.example.rickandmorty.presentation.RickAndMortyActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"

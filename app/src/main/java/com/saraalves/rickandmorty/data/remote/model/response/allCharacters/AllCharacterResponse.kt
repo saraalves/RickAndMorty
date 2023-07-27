@@ -9,5 +9,4 @@ import kotlinx.serialization.Serializable
 data class AllCharacterResponse(
     @SerialName("info") val info: InfoResponse,
     @SerialName("results") val results: List<CharacterResponse> = listOf()
-
 )

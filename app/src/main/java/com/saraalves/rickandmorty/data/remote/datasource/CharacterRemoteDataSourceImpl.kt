@@ -14,7 +14,7 @@ class CharacterRemoteDataSourceImpl(
     private val allCharacterMapper: AllCharacterResponseToModelMapper,
     private val characterMapper: CharacterResponseToModelMapper
 ) : CharacterRemoteDataSource {
-    override fun getAllCharacters(): Flow<List<AllCharacters>> {
+    override fun getAllCharacters(): Flow<AllCharacters> {
         return flow { emit(allCharacterMapper.map(characterApi.getAllCharacters())) }.parseHttpError()
     }
 

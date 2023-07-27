@@ -62,9 +62,9 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
             }
         }
 
-        viewModel.characters.observe(viewLifecycleOwner) { character ->
+        viewModel.allCharacters.observe(viewLifecycleOwner) { allCharacters ->
             binding?.characterListProgressBar?.isVisible = false
-            adapter.submitList(character)
+            adapter.submitList(allCharacters.results)
         }
 
         viewModel.error.observe(viewLifecycleOwner) {

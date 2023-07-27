@@ -19,21 +19,26 @@ class AllCharactersViewHolder(
     private val binding get() = _binding
 
     fun bind(characters: SingleCharacter) {
-        binding?.root?.setOnClickListener { onItemClick(characters) }
-        binding?.characterName?.text = characters.name
-        binding?.text?.text = characters.status
-        binding?.progressBar?.isVisible = false
-        Picasso.get()
-            .load(characters.image)
-            .into(binding?.picture, object : Callback {
-                override fun onSuccess() {
-                    binding?.progressBar?.isVisible = false
-                }
+        binding?.let {
+            it.root.setOnClickListener { onItemClick(characters) }
+            it.characterName.text = characters.name
+            it.text.text = characters.status
+            it.progressBar.isVisible = false
+            Picasso.get()
+                .load(characters.image)
+                .error(R.drawable.baseline_person_24)
+                .into(it.picture, object : Callback {
+                    override fun onSuccess() {
+                        it.progressBar.isVisible = false
+                    }
 
-                override fun onError(e: Exception?) {
-                    binding?.progressBar?.isVisible = false
-                }
-            })
+                    override fun onError(e: Exception?) {
+                        it.progressBar.isVisible = false
+                    }
+                })
+        }
+
+
 
     }
 

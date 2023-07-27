@@ -18,17 +18,17 @@ fun OriginResponse.mapToOrigin(): Origin {
 
 fun LocationResponse.mapToLocation(): Location {
     return Location(
-        infoLocation = this.infoLocation.mapToInfoLocations(),
-        results = this.results.mapToResults()
+        infoLocation = infoLocation?.mapToInfo() ?: Info(0,0),
+        results = results.mapToResults()
     )
 }
 
-private fun InfoResponse.mapToInfoLocations(): Info {
+fun InfoResponse.mapToInfo(): Info {
     return Info(
-        count = this.count,
-        pages = this.pages,
+        count = this.count ?: 0,
+        pages = this.pages ?: 0,
         next = this.next,
-        prev = this.prev
+        prev = this.prev.orEmpty()
     )
 }
 

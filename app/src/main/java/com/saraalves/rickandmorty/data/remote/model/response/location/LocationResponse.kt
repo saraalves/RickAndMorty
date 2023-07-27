@@ -7,6 +7,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class LocationResponse(
-    @SerialName("info") val infoLocation: InfoResponse,
+    @SerialName("info") val infoLocation: InfoResponse? = null,
     @SerialName("results") val results: List<ResultsLocationResponse> = listOf(),
 )

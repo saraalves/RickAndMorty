@@ -22,8 +22,8 @@ class CharacterViewModel(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
 
-    private val _allCharacters = MutableLiveData<List<AllCharacters>>()
-    var allCharacters: LiveData<List<AllCharacters>> = _allCharacters
+    private val _allCharacters = MutableLiveData<AllCharacters>()
+    var allCharacters: LiveData<AllCharacters> = _allCharacters
 
     private val _characters = MutableLiveData<List<SingleCharacter>>()
     var characters: LiveData<List<SingleCharacter>> = _characters

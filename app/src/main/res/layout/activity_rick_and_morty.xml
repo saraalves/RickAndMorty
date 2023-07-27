@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:id="@+id/RickAndMortyActivity"
-    tools:context="com.example.rickandmorty.presentation.RickAndMortyActivity">
+    tools:context="com.saraalves.rickandmorty.presentation.RickAndMortyActivity">
 
     <androidx.viewpager.widget.ViewPager
         android:id="@+id/viewPager"
@@ -27,22 +27,17 @@
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/baseline_home_24"/>
+                android:text="Personagens"/>
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/baseline_person_24"/>
+                android:text="Localização"/>
 
             <com.google.android.material.tabs.TabItem
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:icon="@drawable/baseline_rocket_24"/>
-
-            <com.google.android.material.tabs.TabItem
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:icon="@drawable/baseline_vpn_lock_24"/>
+                android:text="Episodios"/>
 
         </com.google.android.material.tabs.TabLayout>
 

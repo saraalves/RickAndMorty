@@ -1,4 +1,7 @@
-package com.saraalves.rickandmorty.domain.model.response
+package com.saraalves.rickandmorty.domain.model.response.character
+
+import com.saraalves.rickandmorty.domain.model.response.location.Location
+import com.saraalves.rickandmorty.domain.model.response.Origin
 
 data class SingleCharacter(
     val id: Int? = null,

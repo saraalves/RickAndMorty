@@ -5,6 +5,8 @@ import android.os.Bundle
 import com.saraalves.rickandmorty.ViewPagerAdapter
 import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.ActivityRickAndMortyBinding
+import com.saraalves.rickandmorty.presentation.character.fragment.CharacterFragment
+import com.saraalves.rickandmorty.presentation.episodes.EpisodesFragment
 
 class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty) {
 
@@ -14,7 +16,7 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
 
     private lateinit var characterFragment: CharacterFragment
     private lateinit var profileFragment: ProfileFragment
-    private lateinit var episodeFragment: EpisodeFragment
+    private lateinit var episodeFragment: EpisodesFragment
 
     private val _tabTitle = listOf(
         "Personagens",
@@ -35,7 +37,7 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
 
         characterFragment = CharacterFragment()
         profileFragment = ProfileFragment()
-        episodeFragment = EpisodeFragment()
+        episodeFragment = EpisodesFragment()
 
         val listaFragmentos = listOf(
             characterFragment,

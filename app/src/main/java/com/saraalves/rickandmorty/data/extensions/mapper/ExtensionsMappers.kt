@@ -5,9 +5,9 @@ import com.saraalves.rickandmorty.data.remote.model.response.OriginResponse
 import com.saraalves.rickandmorty.data.remote.model.response.ResultsLocationResponse
 import com.saraalves.rickandmorty.data.remote.model.response.location.LocationResponse
 import com.saraalves.rickandmorty.domain.model.response.Info
-import com.saraalves.rickandmorty.domain.model.response.Location
+import com.saraalves.rickandmorty.domain.model.response.location.Location
 import com.saraalves.rickandmorty.domain.model.response.Origin
-import com.saraalves.rickandmorty.domain.model.response.ResultsLocation
+import com.saraalves.rickandmorty.domain.model.response.location.ResultsLocation
 
 fun OriginResponse.mapToOrigin(): Origin {
     return Origin(

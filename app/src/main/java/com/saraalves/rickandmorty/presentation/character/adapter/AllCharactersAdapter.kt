@@ -1,9 +1,9 @@
-package com.saraalves.rickandmorty.presentation.adapter.character
+package com.saraalves.rickandmorty.presentation.character.adapter
 
 import android.view.ViewGroup
 import androidx.recyclerview.widget.ListAdapter
-import com.saraalves.rickandmorty.domain.model.response.SingleCharacter
-import com.saraalves.rickandmorty.presentation.adapter.DefaultDiffCallback
+import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
+import com.saraalves.rickandmorty.presentation.DefaultDiffCallback
 
 class AllCharactersAdapter(
     private val clickListener: (SingleCharacter) -> Unit

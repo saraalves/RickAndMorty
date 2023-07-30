@@ -4,7 +4,7 @@ import com.saraalves.rickandmorty.data.extensions.mapper.mapToLocation
 import com.saraalves.rickandmorty.data.extensions.mapper.mapToOrigin
 import com.saraalves.rickandmorty.data.mapper.Mapper
 import com.saraalves.rickandmorty.data.remote.model.response.character.CharacterResponse
-import com.saraalves.rickandmorty.domain.model.response.SingleCharacter
+import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
 
 class CharacterResponseToModelMapper : Mapper<List<CharacterResponse>, List<SingleCharacter>> {
     override fun map(source: List<CharacterResponse>): List<SingleCharacter> = source.map {

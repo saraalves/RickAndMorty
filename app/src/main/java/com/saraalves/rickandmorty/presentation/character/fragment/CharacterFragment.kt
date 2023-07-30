@@ -1,4 +1,4 @@
-package com.saraalves.rickandmorty.presentation
+package com.saraalves.rickandmorty.presentation.character.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -7,11 +7,11 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.saraalves.rickandmorty.domain.model.response.AllCharacters
-import com.saraalves.rickandmorty.presentation.adapter.character.AllCharactersAdapter
-import com.saraalves.rickandmorty.presentation.viewmodel.CharacterViewModel
+import com.saraalves.rickandmorty.domain.model.response.character.AllCharacters
+import com.saraalves.rickandmorty.presentation.character.adapter.AllCharactersAdapter
 import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.FragmentCharacterBinding
+import com.saraalves.rickandmorty.presentation.character.viewmodel.CharacterViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class CharacterFragment : Fragment(R.layout.fragment_character) {

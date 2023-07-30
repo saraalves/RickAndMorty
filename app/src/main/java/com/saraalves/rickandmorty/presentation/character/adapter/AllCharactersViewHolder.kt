@@ -1,11 +1,11 @@
-package com.saraalves.rickandmorty.presentation.adapter.character
+package com.saraalves.rickandmorty.presentation.character.adapter
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
-import com.saraalves.rickandmorty.domain.model.response.SingleCharacter
+import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
 import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.ListItemCharacterBinding
 import com.squareup.picasso.Callback

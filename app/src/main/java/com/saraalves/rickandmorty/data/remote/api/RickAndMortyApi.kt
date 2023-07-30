@@ -1,9 +1,11 @@
 package com.saraalves.rickandmorty.data.remote.api
 
 import com.saraalves.rickandmorty.data.remote.annotation.KSerialization
+import com.saraalves.rickandmorty.data.remote.model.response.ResultsLocationResponse
 import com.saraalves.rickandmorty.data.remote.model.response.allCharacters.AllCharacterResponse
 import com.saraalves.rickandmorty.data.remote.model.response.character.CharacterResponse
 import com.saraalves.rickandmorty.data.remote.model.response.location.LocationResponse
+import com.saraalves.rickandmorty.domain.model.response.location.Location
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
@@ -23,11 +25,11 @@ interface RickAndMortyApi {
 
     @KSerialization
     @GET("location")
-    suspend fun getSingleLocation(): List<LocationResponse>
+    suspend fun getSingleLocation(): List<ResultsLocationResponse>
 
     @KSerialization
     @GET("location")
-    suspend fun getAllLocation(): List<LocationResponse>
+    suspend fun getAllLocation(@Query("page") page: Int): LocationResponse
 
 //    @GET("location")
 //    suspend fun getMultipleLocation(): List<LocationResponse>

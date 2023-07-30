@@ -4,12 +4,10 @@ import com.saraalves.rickandmorty.data.extensions.mapper.mapToInfo
 import com.saraalves.rickandmorty.data.extensions.mapper.mapToLocation
 import com.saraalves.rickandmorty.data.extensions.mapper.mapToOrigin
 import com.saraalves.rickandmorty.data.mapper.Mapper
-import com.saraalves.rickandmorty.data.remote.model.response.InfoResponse
 import com.saraalves.rickandmorty.data.remote.model.response.allCharacters.AllCharacterResponse
 import com.saraalves.rickandmorty.data.remote.model.response.character.CharacterResponse
-import com.saraalves.rickandmorty.domain.model.response.AllCharacters
-import com.saraalves.rickandmorty.domain.model.response.Info
-import com.saraalves.rickandmorty.domain.model.response.SingleCharacter
+import com.saraalves.rickandmorty.domain.model.response.character.AllCharacters
+import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
 
 class AllCharacterResponseToModelMapper : Mapper<AllCharacterResponse, AllCharacters> {
     override fun map(source: AllCharacterResponse): AllCharacters {
@@ -35,39 +33,4 @@ class AllCharacterResponseToModelMapper : Mapper<AllCharacterResponse, AllCharac
             created = it.created
         )
     }
-
-//    private fun OriginResponse.mapToOrigin(): Origin {
-//        return Origin(
-//            name = this.originName,
-//            url = this.originUrl
-//        )
-//    }
-//
-//    private fun LocationResponse.mapToLocation(): Location {
-//        return Location(
-//            infoLocation = this.infoLocation.mapToInfoLocations(),
-//            results = this.results.mapToResults()
-//        )
-//    }
-//
-//    private fun InfoResponse.mapToInfoLocations(): Info {
-//        return Info(
-//            count = this.count,
-//            pages = this.pages,
-//            next = this.next,
-//            prev = this.prev
-//        )
-//    }
-//
-//    private fun List<ResultsLocationResponse>.mapToResults(): List<ResultsLocation> = map {
-//        ResultsLocation(
-//            id = it.id,
-//            locationName = it.locationName,
-//            type = it.type,
-//            dimension = it.dimension,
-//            residents = it.residents,
-//            locationUrl = it.locationUrl,
-//            createdLocation = it.createdLocation
-//        )
-//    }
 }

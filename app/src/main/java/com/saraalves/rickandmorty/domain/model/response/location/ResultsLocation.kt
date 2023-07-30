@@ -1,4 +1,4 @@
-package com.saraalves.rickandmorty.domain.model.response
+package com.saraalves.rickandmorty.domain.model.response.location
 
 data class ResultsLocation(
     val id: Int? = null,

@@ -1,13 +1,13 @@
-package com.saraalves.rickandmorty.presentation.viewmodel
+package com.saraalves.rickandmorty.presentation.character.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.saraalves.rickandmorty.domain.exception.ConnectionError
-import com.saraalves.rickandmorty.domain.model.response.AllCharacters
-import com.saraalves.rickandmorty.domain.model.response.SingleCharacter
-import com.saraalves.rickandmorty.domain.usecase.GetAllCharacterUseCase
+import com.saraalves.rickandmorty.domain.model.response.character.AllCharacters
+import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
+import com.saraalves.rickandmorty.domain.usecase.character.GetAllCharacterUseCase
 import com.saraalves.rickandmorty.R
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.Dispatchers

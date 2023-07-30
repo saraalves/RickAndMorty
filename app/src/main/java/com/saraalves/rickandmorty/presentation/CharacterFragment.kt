@@ -17,7 +17,7 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
 class CharacterFragment : Fragment(R.layout.fragment_character) {
 
     private var _binding: FragmentCharacterBinding? = null
-    private val binding get() = _binding
+    private val binding get() = _binding!!
 
     private lateinit var adapter: AllCharactersAdapter
     private var allCharacter = mutableListOf<AllCharacters>()
@@ -26,10 +26,10 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         // Inflate the layout for this fragment
         _binding = FragmentCharacterBinding.inflate(inflater, container, false)
-        return binding?.root
+        return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -47,28 +47,28 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
 
         }
         adapter.apply {
-            binding?.recyclerView?.adapter = adapter
-            binding?.recyclerView?.layoutManager = LinearLayoutManager(context)
-            binding?.characterListProgressBar?.isVisible = true
+            binding.recyclerView.adapter = adapter
+            binding.recyclerView.layoutManager = LinearLayoutManager(context)
+            binding.characterListProgressBar.isVisible = true
         }
     }
 
     private fun observeViewModel() {
         viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
             if (isLoading) {
-                binding?.characterListProgressBar?.visibility = View.VISIBLE
+                binding.characterListProgressBar.visibility = View.VISIBLE
             } else {
-                binding?.characterListProgressBar?.visibility = View.GONE
+                binding.characterListProgressBar.visibility = View.GONE
             }
         }
 
         viewModel.allCharacters.observe(viewLifecycleOwner) { allCharacters ->
-            binding?.characterListProgressBar?.isVisible = false
+            binding.characterListProgressBar.isVisible = false
             adapter.submitList(allCharacters.results)
         }
 
         viewModel.error.observe(viewLifecycleOwner) {
-            binding?.let {
+            binding.let {
                 it.characterListProgressBar.isVisible = false
                 it.recyclerView.isVisible = false
                 // colocar cenario de erro

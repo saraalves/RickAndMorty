@@ -8,8 +8,8 @@ import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class CharacterRepositoryImpl(private val characterRemoteDataSource: CharacterRemoteDataSource) : CharacterRepository {
-    override fun getAllCharacters(): Flow<AllCharacters> = flow {
-        getAllCharactersData().collect{ remoteList ->
+    override fun getAllCharacters(page: Int): Flow<AllCharacters> = flow {
+        getAllCharactersData(page).collect{ remoteList ->
             emit(remoteList)
         }
     }
@@ -18,5 +18,5 @@ class CharacterRepositoryImpl(private val characterRemoteDataSource: CharacterRe
         TODO("Not yet implemented")
     }
 
-    override fun getAllCharactersData(): Flow<AllCharacters> = characterRemoteDataSource.getAllCharacters()
+    override fun getAllCharactersData(page: Int): Flow<AllCharacters> = characterRemoteDataSource.getAllCharacters(page)
 }

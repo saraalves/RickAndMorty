@@ -46,11 +46,17 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
             character.let {}
 
         }
+
         adapter.apply {
             binding.recyclerView.adapter = adapter
             binding.recyclerView.layoutManager = LinearLayoutManager(context)
             binding.characterListProgressBar.isVisible = true
         }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
     }
 
     private fun observeViewModel() {

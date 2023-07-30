@@ -15,14 +15,16 @@ import java.lang.Exception
 class AllCharactersViewHolder(
     itemView: View, private val onItemClick: (SingleCharacter) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
-    private var _binding: ListItemCharacterBinding? = null
-    private val binding get() = _binding
+//    private var _binding: ListItemCharacterBinding? = null
+//    private val binding get() = _binding!!
+
+    private val binding = ListItemCharacterBinding.bind(itemView)
 
     fun bind(characters: SingleCharacter) {
-        binding?.let {
+        binding.let {
             it.root.setOnClickListener { onItemClick(characters) }
-            it.characterName.text = characters.name
-            it.text.text = characters.status
+            it.characterName.text = characters.name ?: "ops sem nome"
+            it.text.text = characters.status ?: "ops sem status"
             it.progressBar.isVisible = false
             Picasso.get()
                 .load(characters.image)
@@ -37,9 +39,6 @@ class AllCharactersViewHolder(
                     }
                 })
         }
-
-
-
     }
 
     companion object {

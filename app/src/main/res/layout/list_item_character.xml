@@ -15,6 +15,7 @@
         android:layout_marginLeft="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
+        android:background="@color/colorDetail"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -26,22 +27,23 @@
         android:layout_marginStart="16dp"
         android:layout_marginLeft="16dp"
         android:layout_marginTop="8dp"
-        android:textColor="@android:color/white"
-        app:layout_constraintBottom_toTopOf="@+id/name"
+        android:textSize="16sp"
+        android:textColor="#ffffffff"
         app:layout_constraintStart_toEndOf="@+id/picture"
         app:layout_constraintTop_toTopOf="@+id/picture"
-        tools:text="\@username" />
+        android:text="\@username" />
 
     <TextView
         android:id="@+id/text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:textColor="@color/colorDetail"
+        android:textSize="16sp"
+        android:textColor="#ffffffff"
         app:layout_constraintBottom_toBottomOf="@+id/picture"
         app:layout_constraintStart_toStartOf="@+id/characterName"
         app:layout_constraintTop_toBottomOf="@+id/characterName"
-        tools:text="Name Surname" />
+        android:text="Name Surname" />
 
     <ProgressBar
         android:id="@+id/progressBar"

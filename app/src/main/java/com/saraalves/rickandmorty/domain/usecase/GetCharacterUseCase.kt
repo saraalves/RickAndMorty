@@ -6,5 +6,5 @@ import com.saraalves.rickandmorty.domain.repository.CharacterRepository
 import kotlinx.coroutines.flow.Flow
 
 class GetAllCharacterUseCase(private val repository: CharacterRepository) {
-    operator fun invoke(): Flow<AllCharacters> = repository.getAllCharacters()
+    operator fun invoke(page: Int): Flow<AllCharacters> = repository.getAllCharacters(page)
 }

@@ -16,6 +16,7 @@ import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 import kotlinx.coroutines.launch
+import kotlin.random.Random
 
 class CharacterViewModel(
     private val getAllCharacterUseCase: GetAllCharacterUseCase,
@@ -34,9 +35,11 @@ class CharacterViewModel(
     private val _error = MutableLiveData<Pair<Int, Int>>()
     var error: LiveData<Pair<Int, Int>> = _error
 
+    private val page = Random.nextInt(1, 18)
+
     fun getAllCharacters() {
         viewModelScope.launch {
-            getAllCharacterUseCase()
+            getAllCharacterUseCase(page)
                 .flowOn(dispatcher)
                 .onStart { _loading.value = true }
                 .catch { handleError(it) }

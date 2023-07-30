@@ -14,7 +14,7 @@ import com.saraalves.rickandmorty.domain.model.response.SingleCharacter
 class AllCharacterResponseToModelMapper : Mapper<AllCharacterResponse, AllCharacters> {
     override fun map(source: AllCharacterResponse): AllCharacters {
         return AllCharacters(
-//            info = source.info.mapToInfo(),
+            info = source.info.mapToInfo(),
             results = source.results.mapToListResults()
         )
     }

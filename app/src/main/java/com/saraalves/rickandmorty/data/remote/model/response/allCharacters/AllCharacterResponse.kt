@@ -7,6 +7,6 @@ import kotlinx.serialization.Serializable
 
 @Serializable
 data class AllCharacterResponse(
-//    @SerialName("info") val info: InfoResponse,
+    @SerialName("info") val info: InfoResponse,
     @SerialName("results") val results: List<CharacterResponse>
 )

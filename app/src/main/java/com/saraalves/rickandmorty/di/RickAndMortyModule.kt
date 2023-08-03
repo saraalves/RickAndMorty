@@ -16,6 +16,7 @@ import com.saraalves.rickandmorty.data.remote.datasource.location.LocationRemote
 import com.saraalves.rickandmorty.data.repository.location.LocationRepositoryImpl
 import com.saraalves.rickandmorty.domain.repository.location.LocationRepository
 import com.saraalves.rickandmorty.domain.usecase.location.GetLocationUseCase
+import com.saraalves.rickandmorty.presentation.location.LocationViewModel
 import okhttp3.OkHttpClient
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
@@ -24,6 +25,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 val chracterViewModel = module {
     viewModel { CharacterViewModel(get()) }
+    viewModel { LocationViewModel(get()) }
 }
 
 val characterUseCaseModule = module {

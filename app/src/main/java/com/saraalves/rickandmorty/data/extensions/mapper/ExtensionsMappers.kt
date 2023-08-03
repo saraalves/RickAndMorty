@@ -5,9 +5,9 @@ import com.saraalves.rickandmorty.data.remote.model.response.OriginResponse
 import com.saraalves.rickandmorty.data.remote.model.response.ResultsLocationResponse
 import com.saraalves.rickandmorty.data.remote.model.response.location.LocationResponse
 import com.saraalves.rickandmorty.domain.model.response.Info
-import com.saraalves.rickandmorty.domain.model.response.location.Location
+import com.saraalves.rickandmorty.domain.model.response.location.AllLocation
 import com.saraalves.rickandmorty.domain.model.response.Origin
-import com.saraalves.rickandmorty.domain.model.response.location.ResultsLocation
+import com.saraalves.rickandmorty.domain.model.response.location.SingleLocation
 
 fun OriginResponse.mapToOrigin(): Origin {
     return Origin(
@@ -16,8 +16,8 @@ fun OriginResponse.mapToOrigin(): Origin {
     )
 }
 
-fun LocationResponse.mapToLocation(): Location {
-    return Location(
+fun LocationResponse.mapToLocation(): AllLocation {
+    return AllLocation(
         infoLocation = infoLocation?.mapToInfo() ?: Info(0,0),
         results = results.mapToResults()
     )
@@ -32,8 +32,8 @@ fun InfoResponse.mapToInfo(): Info {
     )
 }
 
-private fun List<ResultsLocationResponse>.mapToResults(): List<ResultsLocation> = map {
-    ResultsLocation(
+private fun List<ResultsLocationResponse>.mapToResults(): List<SingleLocation> = map {
+    SingleLocation(
         id = it.id,
         locationName = it.locationName,
         type = it.type,

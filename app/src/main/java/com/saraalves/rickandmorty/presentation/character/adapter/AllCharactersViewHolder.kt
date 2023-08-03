@@ -15,8 +15,6 @@ import java.lang.Exception
 class AllCharactersViewHolder(
     itemView: View, private val onItemClick: (SingleCharacter) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
-//    private var _binding: ListItemCharacterBinding? = null
-//    private val binding get() = _binding!!
 
     private val binding = ListItemCharacterBinding.bind(itemView)
 

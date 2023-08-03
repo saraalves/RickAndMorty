@@ -1,6 +1,6 @@
 package com.saraalves.rickandmorty.domain.model.response.location
 
-data class ResultsLocation(
+data class SingleLocation(
     val id: Int? = null,
     val locationName: String? = null,
     val type: String? = null,

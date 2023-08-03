@@ -5,7 +5,6 @@ import com.saraalves.rickandmorty.data.remote.model.response.ResultsLocationResp
 import com.saraalves.rickandmorty.data.remote.model.response.allCharacters.AllCharacterResponse
 import com.saraalves.rickandmorty.data.remote.model.response.character.CharacterResponse
 import com.saraalves.rickandmorty.data.remote.model.response.location.LocationResponse
-import com.saraalves.rickandmorty.domain.model.response.location.Location
 import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query

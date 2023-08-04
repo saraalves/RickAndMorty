@@ -7,6 +7,7 @@ import androidx.core.view.isVisible
 import androidx.recyclerview.widget.RecyclerView
 import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
 import com.saraalves.rickandmorty.R
+import com.saraalves.rickandmorty.databinding.FragmentCharacterBinding
 import com.saraalves.rickandmorty.databinding.ListItemCharacterBinding
 import com.squareup.picasso.Callback
 import com.squareup.picasso.Picasso

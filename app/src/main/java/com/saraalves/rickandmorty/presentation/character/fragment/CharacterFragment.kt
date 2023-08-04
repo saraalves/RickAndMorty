@@ -27,7 +27,6 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        // Inflate the layout for this fragment
         _binding = FragmentCharacterBinding.inflate(inflater, container, false)
         return binding.root
     }

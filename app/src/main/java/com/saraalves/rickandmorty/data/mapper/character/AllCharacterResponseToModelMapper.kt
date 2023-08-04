@@ -1,6 +1,7 @@
 package com.saraalves.rickandmorty.data.mapper.character
 
 import com.saraalves.rickandmorty.data.extensions.mapper.mapToInfo
+import com.saraalves.rickandmorty.data.extensions.mapper.mapToListResults
 import com.saraalves.rickandmorty.data.extensions.mapper.mapToLocation
 import com.saraalves.rickandmorty.data.extensions.mapper.mapToOrigin
 import com.saraalves.rickandmorty.data.mapper.Mapper
@@ -14,23 +15,6 @@ class AllCharacterResponseToModelMapper : Mapper<AllCharacterResponse, AllCharac
         return AllCharacters(
             info = source.info.mapToInfo(),
             results = source.results.mapToListResults()
-        )
-    }
-
-    private fun List<CharacterResponse>.mapToListResults(): List<SingleCharacter> = map {
-        SingleCharacter(
-            id = it.id,
-            name = it.name,
-            status = it.status,
-            species = it.species,
-            type = it.type,
-            gender = it.gender,
-            origin = it.origin?.mapToOrigin(),
-            location = it.location?.mapToLocation(),
-            image = it.image,
-            episode = it.episode,
-            url = it.url,
-            created = it.created
         )
     }
 }

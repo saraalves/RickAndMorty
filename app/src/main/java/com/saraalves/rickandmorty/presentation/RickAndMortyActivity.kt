@@ -7,6 +7,7 @@ import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.ActivityRickAndMortyBinding
 import com.saraalves.rickandmorty.presentation.character.fragment.CharacterFragment
 import com.saraalves.rickandmorty.presentation.episodes.EpisodesFragment
+import com.saraalves.rickandmorty.presentation.location.LocationFragment
 
 class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty) {
 
@@ -15,7 +16,7 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
     private val tabLayout by lazy { binding.tabLayout }
 
     private lateinit var characterFragment: CharacterFragment
-    private lateinit var profileFragment: ProfileFragment
+    private lateinit var locationFragment: LocationFragment
     private lateinit var episodeFragment: EpisodesFragment
 
     private val _tabTitle = listOf(
@@ -36,12 +37,12 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
         tabLayout.setupWithViewPager(binding.viewPager)
 
         characterFragment = CharacterFragment()
-        profileFragment = ProfileFragment()
+        locationFragment = LocationFragment()
         episodeFragment = EpisodesFragment()
 
         val listaFragmentos = listOf(
             characterFragment,
-            profileFragment,
+            locationFragment,
             episodeFragment
         )
 

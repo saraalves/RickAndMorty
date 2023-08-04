@@ -3,10 +3,12 @@ package com.saraalves.rickandmorty.data.extensions.mapper
 import com.saraalves.rickandmorty.data.remote.model.response.InfoResponse
 import com.saraalves.rickandmorty.data.remote.model.response.OriginResponse
 import com.saraalves.rickandmorty.data.remote.model.response.ResultsLocationResponse
+import com.saraalves.rickandmorty.data.remote.model.response.character.CharacterResponse
 import com.saraalves.rickandmorty.data.remote.model.response.location.LocationResponse
 import com.saraalves.rickandmorty.domain.model.response.Info
 import com.saraalves.rickandmorty.domain.model.response.location.AllLocation
 import com.saraalves.rickandmorty.domain.model.response.Origin
+import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
 import com.saraalves.rickandmorty.domain.model.response.location.SingleLocation
 
 fun OriginResponse.mapToOrigin(): Origin {
@@ -41,5 +43,22 @@ private fun List<ResultsLocationResponse>.mapToResults(): List<SingleLocation> =
         residents = it.residents,
         locationUrl = it.locationUrl,
         createdLocation = it.createdLocation
+    )
+}
+
+fun List<CharacterResponse>.mapToListResults(): List<SingleCharacter> = map {
+    SingleCharacter(
+        id = it.id,
+        name = it.name,
+        status = it.status,
+        species = it.species,
+        type = it.type,
+        gender = it.gender,
+        origin = it.origin?.mapToOrigin(),
+        location = it.location?.mapToLocation(),
+        image = it.image,
+        episode = it.episode,
+        url = it.url,
+        created = it.created
     )
 }

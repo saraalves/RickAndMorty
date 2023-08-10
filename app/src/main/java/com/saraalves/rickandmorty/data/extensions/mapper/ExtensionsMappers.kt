@@ -1,13 +1,13 @@
 package com.saraalves.rickandmorty.data.extensions.mapper
 
-import com.saraalves.rickandmorty.data.remote.model.response.InfoResponse
-import com.saraalves.rickandmorty.data.remote.model.response.OriginResponse
-import com.saraalves.rickandmorty.data.remote.model.response.ResultsLocationResponse
+import com.saraalves.rickandmorty.data.remote.model.response.commom.InfoResponse
+import com.saraalves.rickandmorty.data.remote.model.response.commom.OriginResponse
+import com.saraalves.rickandmorty.data.remote.model.response.commom.ResultsLocationResponse
 import com.saraalves.rickandmorty.data.remote.model.response.character.CharacterResponse
 import com.saraalves.rickandmorty.data.remote.model.response.location.LocationResponse
-import com.saraalves.rickandmorty.domain.model.response.Info
+import com.saraalves.rickandmorty.domain.model.response.commom.Info
 import com.saraalves.rickandmorty.domain.model.response.location.AllLocation
-import com.saraalves.rickandmorty.domain.model.response.Origin
+import com.saraalves.rickandmorty.domain.model.response.commom.Origin
 import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
 import com.saraalves.rickandmorty.domain.model.response.location.SingleLocation
 

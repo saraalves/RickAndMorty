@@ -30,8 +30,7 @@ class LocationViewModel(
     private val _allLocation = MutableLiveData<AllLocation>()
     var allLocation: LiveData<AllLocation> = _allLocation
 
-    private val _location = MutableLiveData<List<SingleLocation>>()
-    var location: LiveData<List<SingleLocation>> = _location
+
 
     private val _loading = MutableLiveData<Boolean>()
     var loading: LiveData<Boolean> = _loading
@@ -39,7 +38,11 @@ class LocationViewModel(
     private val _error = MutableLiveData<Pair<Int, Int>>()
     var error: LiveData<Pair<Int, Int>> = _error
 
-    private val page = Random.nextInt(1, 18)
+    private val page = Random.nextInt(1, 3)
+
+    init {
+        getAllLocations()
+    }
 
     fun getAllLocations() {
         viewModelScope.launch {

@@ -1,7 +1,7 @@
 package com.saraalves.rickandmorty.data.mapper.location
 
 import com.saraalves.rickandmorty.data.mapper.Mapper
-import com.saraalves.rickandmorty.data.remote.model.response.ResultsLocationResponse
+import com.saraalves.rickandmorty.data.remote.model.response.commom.ResultsLocationResponse
 import com.saraalves.rickandmorty.domain.model.response.location.SingleLocation
 
 class LocationMapperResponseToModelMapper : Mapper<List<ResultsLocationResponse>, List<SingleLocation>> {

@@ -40,8 +40,11 @@ class EpisodesViewModel(
 
     private val page = Random.nextInt(1, 3)
 
+    init {
+        getAllEpisodes()
+    }
 
-    fun getAllEpisodes() {
+    private fun getAllEpisodes() {
         viewModelScope.launch {
             getAllEpisodesUseCase(page)
                 .flowOn(dispatcher)

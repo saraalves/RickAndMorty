@@ -1,4 +1,4 @@
-package com.saraalves.rickandmorty.data.remote.model.response
+package com.saraalves.rickandmorty.data.remote.model.response.commom
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable

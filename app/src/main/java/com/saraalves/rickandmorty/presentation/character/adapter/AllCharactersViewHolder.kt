@@ -19,6 +19,7 @@ class AllCharactersViewHolder(
 
     private val binding = ListItemCharacterBinding.bind(itemView)
 
+    // tirar o let do binding e colocar o with()
     fun bind(characters: SingleCharacter) {
         binding.let {
             it.root.setOnClickListener { onItemClick(characters) }

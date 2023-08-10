@@ -1,8 +1,8 @@
 package com.saraalves.rickandmorty.domain.model.response.character
 
 import com.saraalves.rickandmorty.domain.model.response.location.AllLocation
-import com.saraalves.rickandmorty.domain.model.response.Origin
-
+import com.saraalves.rickandmorty.domain.model.response.commom.Origin
+// enxugar os atributos que não são usados
 data class SingleCharacter(
     val id: Int? = null,
     val name: String? = null,

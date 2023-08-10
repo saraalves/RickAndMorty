@@ -1,7 +1,7 @@
 package com.saraalves.rickandmorty.data.remote.model.response.location
 
-import com.saraalves.rickandmorty.data.remote.model.response.InfoResponse
-import com.saraalves.rickandmorty.data.remote.model.response.ResultsLocationResponse
+import com.saraalves.rickandmorty.data.remote.model.response.commom.InfoResponse
+import com.saraalves.rickandmorty.data.remote.model.response.commom.ResultsLocationResponse
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

@@ -20,7 +20,6 @@ class LocationFragment : Fragment(R.layout.fragment_location) {
     private val binding get() =_binding!!
 
     private lateinit var adapter: AllLocationAdapter
-    private var allLocation = mutableListOf<AllLocation>()
     private val viewModel: LocationViewModel by viewModel()
 
     override fun onCreateView(
@@ -36,7 +35,6 @@ class LocationFragment : Fragment(R.layout.fragment_location) {
 
         observeViewModel()
         setupRecyclerView()
-        viewModel.getAllLocations()
     }
 
     private fun setupRecyclerView() {

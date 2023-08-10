@@ -35,7 +35,6 @@ class EpisodesFragment : Fragment(R.layout.fragment_episodes) {
 
         observeViewModel()
         setupRecyclerView()
-        viewModel.getAllEpisodes()
     }
 
     private fun setupRecyclerView() {

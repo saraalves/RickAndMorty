@@ -23,11 +23,9 @@ class CharacterViewModel(
     private val dispatcher: CoroutineDispatcher = Dispatchers.IO
 ) : ViewModel() {
 
+    // pensar em criar um state no final como odo picpay por exemplo
     private val _allCharacters = MutableLiveData<AllCharacters>()
     var allCharacters: LiveData<AllCharacters> = _allCharacters
-
-    private val _characters = MutableLiveData<List<SingleCharacter>>()
-    var characters: LiveData<List<SingleCharacter>> = _characters
 
     private val _loading = MutableLiveData<Boolean>()
     var loading: LiveData<Boolean> = _loading
@@ -37,7 +35,11 @@ class CharacterViewModel(
 
     private val page = Random.nextInt(1, 18)
 
-    fun getAllCharacters() {
+    init {
+        getAllCharacters()
+    }
+
+    private fun getAllCharacters() {
         viewModelScope.launch {
             getAllCharacterUseCase(page)
                 .flowOn(dispatcher)

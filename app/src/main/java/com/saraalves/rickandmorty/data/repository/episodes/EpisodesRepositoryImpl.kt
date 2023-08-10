@@ -12,7 +12,6 @@ class EpisodesRepositoryImpl(private val episodeRemoteDataSource: EpisodesRemote
     override fun getAllEpisodes(page: Int): Flow<AllEpisodes> = flow {
         getAllEpisodesData(page).collect {remoteList ->
             emit(remoteList)
-
         }
     }
 

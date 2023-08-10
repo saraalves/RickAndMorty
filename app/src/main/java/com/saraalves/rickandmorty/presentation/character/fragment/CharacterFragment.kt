@@ -20,7 +20,6 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
     private val binding get() = _binding!!
 
     private lateinit var adapter: AllCharactersAdapter
-    private var allCharacter = mutableListOf<AllCharacters>()
     private val viewModel: CharacterViewModel by viewModel()
 
     override fun onCreateView(
@@ -36,14 +35,12 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
 
         observeViewModel()
         setupRecyclerView()
-        viewModel.getAllCharacters()
     }
 
     private fun setupRecyclerView() {
 
         adapter = AllCharactersAdapter { character ->
             character.let {}
-
         }
 
         adapter.apply {
@@ -60,11 +57,7 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
 
     private fun observeViewModel() {
         viewModel.loading.observe(viewLifecycleOwner) { isLoading ->
-            if (isLoading) {
-                binding.characterListProgressBar.visibility = View.VISIBLE
-            } else {
-                binding.characterListProgressBar.visibility = View.GONE
-            }
+                binding.characterListProgressBar.isVisible = isLoading
         }
 
         viewModel.allCharacters.observe(viewLifecycleOwner) { allCharacters ->
@@ -77,6 +70,7 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
                 it.characterListProgressBar.isVisible = false
                 it.recyclerView.isVisible = false
                 // colocar cenario de erro
+                // adicionar a view com botão tentar de novo e tentar mais tarde
             }
         }
     }

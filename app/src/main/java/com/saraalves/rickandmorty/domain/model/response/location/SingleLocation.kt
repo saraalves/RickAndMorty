@@ -1,5 +1,6 @@
 package com.saraalves.rickandmorty.domain.model.response.location
 
+// enxugar os atributos que não são usados
 data class SingleLocation(
     val id: Int? = null,
     val locationName: String? = null,

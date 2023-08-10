@@ -1,7 +1,6 @@
 package com.saraalves.rickandmorty.domain.model.response.episodes
 
-import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
-
+// enxugar os atributos que não são usados
 data class SingleEpisode(
     val id: Int? = null,
     val name: String? = null,

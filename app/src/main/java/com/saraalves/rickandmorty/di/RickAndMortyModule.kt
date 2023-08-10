@@ -31,7 +31,8 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-
+// alterar os nomes pra ficar generico
+//remover os get() e colocar os nomes das dependencias
 val chracterViewModel = module {
     viewModel { CharacterViewModel(get()) }
     viewModel { LocationViewModel(get()) }

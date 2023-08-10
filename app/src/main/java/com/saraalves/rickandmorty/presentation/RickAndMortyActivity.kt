@@ -2,7 +2,6 @@ package com.saraalves.rickandmorty.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.saraalves.rickandmorty.ViewPagerAdapter
 import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.ActivityRickAndMortyBinding
 import com.saraalves.rickandmorty.presentation.character.fragment.CharacterFragment
@@ -19,11 +18,13 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
     private lateinit var locationFragment: LocationFragment
     private lateinit var episodeFragment: EpisodesFragment
 
+    // alterar de viewPager para bottom navigation
     private val _tabTitle = listOf(
         "Personagens",
         "Localização",
         "Episódios",
     )
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

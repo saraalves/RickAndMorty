@@ -2,7 +2,7 @@ package com.saraalves.rickandmorty.data.mapper.location
 
 import com.saraalves.rickandmorty.data.extensions.mapper.mapToInfo
 import com.saraalves.rickandmorty.data.mapper.Mapper
-import com.saraalves.rickandmorty.data.remote.model.response.ResultsLocationResponse
+import com.saraalves.rickandmorty.data.remote.model.response.commom.ResultsLocationResponse
 import com.saraalves.rickandmorty.data.remote.model.response.location.LocationResponse
 import com.saraalves.rickandmorty.domain.model.response.location.AllLocation
 import com.saraalves.rickandmorty.domain.model.response.location.SingleLocation

@@ -1,4 +1,4 @@
-package com.saraalves.rickandmorty.domain.model.response
+package com.saraalves.rickandmorty.domain.model.response.commom
 
 data class Info(
     val count: Int,

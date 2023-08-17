@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/character"
+        android:icon="@drawable/baseline_person_24"
+        android:title="Character"  />
+    <item
+        android:id="@+id/location"
+        android:icon="@drawable/baseline_vpn_lock_24"
+        android:title="Location" />
+    <item
+        android:id="@+id/episodes"
+        android:icon="@drawable/capsule_shape"
+        android:title="Episodes" />
+
+</menu>

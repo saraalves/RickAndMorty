@@ -1,6 +1,5 @@
 package com.saraalves.rickandmorty.data.remote.model.response.episodes
 
-import com.saraalves.rickandmorty.data.remote.model.response.character.CharacterResponse
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
 

@@ -5,7 +5,6 @@ import com.saraalves.rickandmorty.domain.model.response.episodes.AllEpisodes
 import com.saraalves.rickandmorty.domain.model.response.episodes.SingleEpisode
 import com.saraalves.rickandmorty.domain.repository.episodes.EpisodesRepository
 import kotlinx.coroutines.flow.Flow
-import kotlinx.coroutines.flow.collect
 import kotlinx.coroutines.flow.flow
 
 class EpisodesRepositoryImpl(private val episodeRemoteDataSource: EpisodesRemoteDataSource) : EpisodesRepository {

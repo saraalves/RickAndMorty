@@ -3,15 +3,14 @@ package com.saraalves.rickandmorty.data.remote.datasource.character
 import com.saraalves.rickandmorty.data.extensions.parseHttpError
 import com.saraalves.rickandmorty.data.mapper.character.AllCharacterResponseToModelMapper
 import com.saraalves.rickandmorty.data.mapper.character.CharacterResponseToModelMapper
-import com.saraalves.rickandmorty.data.remote.api.RickAndMortyApi
-import com.saraalves.rickandmorty.data.remote.datasource.character.CharacterRemoteDataSource
+import com.saraalves.rickandmorty.data.remote.api.CharacterApi
 import com.saraalves.rickandmorty.domain.model.response.character.AllCharacters
 import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacter
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.flow
 
 class CharacterRemoteDataSourceImpl(
-    private val characterApi: RickAndMortyApi,
+    private val characterApi: CharacterApi,
     private val allCharacterMapper: AllCharacterResponseToModelMapper,
     private val characterMapper: CharacterResponseToModelMapper
 ) : CharacterRemoteDataSource {

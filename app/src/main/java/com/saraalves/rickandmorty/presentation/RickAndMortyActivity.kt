@@ -2,6 +2,8 @@ package com.saraalves.rickandmorty.presentation
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.fragment.app.Fragment
+import com.google.android.material.bottomnavigation.BottomNavigationView
 import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.ActivityRickAndMortyBinding
 import com.saraalves.rickandmorty.presentation.character.fragment.CharacterFragment
@@ -12,7 +14,7 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
 
     private val binding by lazy { ActivityRickAndMortyBinding.inflate(layoutInflater) }
 
-    private val tabLayout by lazy { binding.tabLayout }
+    lateinit var bottomNav : BottomNavigationView
 
     private lateinit var characterFragment: CharacterFragment
     private lateinit var locationFragment: LocationFragment
@@ -29,31 +31,29 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
-        configViewPager()
-        setupTabIcons()
-    }
+        loadFragment(CharacterFragment())
+        bottomNav = binding.bottomNav
+        bottomNav.setOnItemReselectedListener {
+            when(it.itemId) {
+                R.id.character -> {
+                    loadFragment(CharacterFragment())
+                }
+                R.id.location -> {
+                    loadFragment(LocationFragment())
+                }
+                R.id.episodes -> {
+                    loadFragment(EpisodesFragment())
+                }
+            }
+        }
 
-    private fun configViewPager() {
-
-        tabLayout.setupWithViewPager(binding.viewPager)
-
-        characterFragment = CharacterFragment()
-        locationFragment = LocationFragment()
-        episodeFragment = EpisodesFragment()
-
-        val listaFragmentos = listOf(
-            characterFragment,
-            locationFragment,
-            episodeFragment
-        )
-
-        binding.viewPager.adapter = ViewPagerAdapter(listaFragmentos, supportFragmentManager)
 
     }
 
-    private fun setupTabIcons() {
-        tabLayout.getTabAt(0)?.text = _tabTitle[0]
-        tabLayout.getTabAt(1)?.text = _tabTitle[1]
-        tabLayout.getTabAt(2)?.text = _tabTitle[2]
+    private fun loadFragment(fragment: Fragment) {
+        val transaction = supportFragmentManager.beginTransaction()
+        transaction.replace(R.id.container, fragment)
+        transaction.commit()
     }
+
 }

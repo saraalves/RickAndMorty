@@ -34,56 +34,46 @@ import org.koin.dsl.module
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 
-//remover os get() e colocar os nomes das dependencias
 val viewModelModule = module {
-    viewModel { CharacterViewModel(GetAllCharacterUseCase(repository = get())) }
-    viewModel { LocationViewModel(GetLocationUseCase(repository = get())) }
-    viewModel { EpisodesViewModel(GetAllEpisodesUseCase(repository = get())) }
-}
-
-val useCaseModule = module {
-    single { GetAllCharacterUseCase(repository = get()) }
-    single { GetLocationUseCase(repository = get()) }
-    single { GetAllEpisodesUseCase(repository = get()) }
-}
-
-val mapperModule = module {
-    single { AllCharacterResponseToModelMapper() }
-    single { CharacterResponseToModelMapper() }
-    single { AllLocationMapperResponseToModelMapper() }
-    single { LocationMapperResponseToModelMapper() }
-    single { AllEpisodeResponseToModelMapper() }
-    single { EpisodesResponseToModelMapper() }
-}
-
-val dataSourceModule = module {
-    single<CharacterRemoteDataSource> {
-        CharacterRemoteDataSourceImpl(
-            characterApi = get(),
-            allCharacterMapper = get(),
-            characterMapper = get()
+    viewModel {
+        CharacterViewModel(
+            GetAllCharacterUseCase(
+                repository = CharacterRepositoryImpl
+                    (
+                    characterRemoteDataSource = CharacterRemoteDataSourceImpl(
+                        characterApi = get(),
+                        allCharacterMapper = AllCharacterResponseToModelMapper(),
+                        characterMapper = CharacterResponseToModelMapper()
+                    )
+                )
+            )
         )
     }
-    single<LocationRemoteDataSource> {
-        LocationRemoteDataSourceImpl(
-            locationApi = get(),
-            allLocationMapper = get(),
-            locationMapper = get()
+    viewModel {
+        LocationViewModel(
+            GetLocationUseCase(
+                repository = LocationRepositoryImpl(
+                    locationRemoteDataSource = LocationRemoteDataSourceImpl(
+                        locationApi = get(),
+                        allLocationMapper = AllLocationMapperResponseToModelMapper(),
+                        locationMapper = LocationMapperResponseToModelMapper()
+
+                    )
+                )
+            )
         )
     }
-    single<EpisodesRemoteDataSource> {
-        EpisodesRemoteDataSourceImpl(
-            episodesApi = get(),
-            allEpisodesMapper = get(),
-            episodesMapper = get()
-        )
-    }
+    viewModel { EpisodesViewModel(GetAllEpisodesUseCase(
+        repository = EpisodesRepositoryImpl(
+            episodeRemoteDataSource = EpisodesRemoteDataSourceImpl(
+                episodesApi = get(),
+                allEpisodesMapper = AllEpisodeResponseToModelMapper(),
+                episodesMapper = EpisodesResponseToModelMapper()
+
+            )
+        ))) }
 }
-val repositoryModule = module {
-    single<CharacterRepository> { CharacterRepositoryImpl(characterRemoteDataSource = get()) }
-    single<LocationRepository> { LocationRepositoryImpl(locationRemoteDataSource = get()) }
-    single<EpisodesRepository> { EpisodesRepositoryImpl(episodeRemoteDataSource = get()) }
-}
+
 val networkModule = module {
     factory { createRetrofit().create(CharacterApi::class.java) }
     factory { createRetrofit().create(LocationApi::class.java) }

@@ -33,17 +33,20 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
 
         loadFragment(CharacterFragment())
         bottomNav = binding.bottomNav
-        bottomNav.setOnItemReselectedListener {
+        bottomNav.setOnItemSelectedListener {
             when(it.itemId) {
                 R.id.character -> {
                     loadFragment(CharacterFragment())
+                    true
                 }
                 R.id.location -> {
                     loadFragment(LocationFragment())
+                    true
                 }
                 R.id.episodes -> {
                     loadFragment(EpisodesFragment())
-                }
+                    true
+                } else -> true
             }
         }
 

@@ -74,6 +74,4 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
             }
         }
     }
-
-
 }

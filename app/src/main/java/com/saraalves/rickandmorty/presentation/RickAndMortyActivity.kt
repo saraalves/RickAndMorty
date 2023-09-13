@@ -16,17 +16,6 @@ class RickAndMortyActivity : AppCompatActivity(R.layout.activity_rick_and_morty)
 
     lateinit var bottomNav : BottomNavigationView
 
-    private lateinit var characterFragment: CharacterFragment
-    private lateinit var locationFragment: LocationFragment
-    private lateinit var episodeFragment: EpisodesFragment
-
-    // alterar de viewPager para bottom navigation
-    private val _tabTitle = listOf(
-        "Personagens",
-        "Localização",
-        "Episódios",
-    )
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

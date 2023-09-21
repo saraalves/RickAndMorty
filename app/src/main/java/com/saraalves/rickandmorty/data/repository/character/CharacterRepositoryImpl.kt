@@ -15,9 +15,14 @@ class CharacterRepositoryImpl(private val characterRemoteDataSource: CharacterRe
         }
     }
 
-    override fun getCharacters(id: Int): Flow<List<SingleCharacter>> {
-        TODO("Not yet implemented")
+    override fun getSingleCharacter(id: Int?): Flow<SingleCharacter> = flow {
+        getSingleCharacterData(id).collect { remoteList ->
+            emit(remoteList)
+        }
     }
+
+    override fun getSingleCharacterData(id: Int?): Flow<SingleCharacter> =
+        characterRemoteDataSource.getSingleCharacter(id)
 
     override fun getAllCharactersData(page: Int): Flow<AllCharacters> =
         characterRemoteDataSource.getAllCharacters(page)

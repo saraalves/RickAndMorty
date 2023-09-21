@@ -6,6 +6,7 @@ import kotlinx.coroutines.flow.Flow
 
 interface CharacterRepository {
     fun getAllCharacters(page: Int): Flow<AllCharacters>
-    fun getCharacters(id: Int): Flow<List<SingleCharacter>>
+    fun getSingleCharacter(id: Int?): Flow<SingleCharacter>
+    fun getSingleCharacterData(id: Int?): Flow<SingleCharacter>
     fun getAllCharactersData(page: Int): Flow<AllCharacters>
 }

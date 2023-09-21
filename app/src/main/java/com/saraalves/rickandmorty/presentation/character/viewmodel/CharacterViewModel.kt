@@ -46,7 +46,7 @@ class CharacterViewModel(
                 .onStart { _loading.value = true }
                 .catch { handleError(it) }
                 .onCompletion { _loading.value = false }
-                .collect { _allCharacters.value = it}
+                .collect { _allCharacters.value = it }
         }
 
     }

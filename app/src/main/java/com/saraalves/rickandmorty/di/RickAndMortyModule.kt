@@ -24,8 +24,10 @@ import com.saraalves.rickandmorty.data.repository.episodes.EpisodesRepositoryImp
 import com.saraalves.rickandmorty.data.repository.location.LocationRepositoryImpl
 import com.saraalves.rickandmorty.domain.repository.episodes.EpisodesRepository
 import com.saraalves.rickandmorty.domain.repository.location.LocationRepository
+import com.saraalves.rickandmorty.domain.usecase.character.GetSingleCharacterUseCase
 import com.saraalves.rickandmorty.domain.usecase.episodes.GetAllEpisodesUseCase
 import com.saraalves.rickandmorty.domain.usecase.location.GetLocationUseCase
+import com.saraalves.rickandmorty.presentation.character.viewmodel.CharacterDetailViewModel
 import com.saraalves.rickandmorty.presentation.episodes.EpisodesViewModel
 import com.saraalves.rickandmorty.presentation.location.LocationViewModel
 import okhttp3.OkHttpClient
@@ -63,15 +65,34 @@ val viewModelModule = module {
             )
         )
     }
-    viewModel { EpisodesViewModel(GetAllEpisodesUseCase(
-        repository = EpisodesRepositoryImpl(
-            episodeRemoteDataSource = EpisodesRemoteDataSourceImpl(
-                episodesApi = get(),
-                allEpisodesMapper = AllEpisodeResponseToModelMapper(),
-                episodesMapper = EpisodesResponseToModelMapper()
+    viewModel {
+        EpisodesViewModel(
+            GetAllEpisodesUseCase(
+                repository = EpisodesRepositoryImpl(
+                    episodeRemoteDataSource = EpisodesRemoteDataSourceImpl(
+                        episodesApi = get(),
+                        allEpisodesMapper = AllEpisodeResponseToModelMapper(),
+                        episodesMapper = EpisodesResponseToModelMapper()
 
+                    )
+                )
             )
-        ))) }
+        )
+    }
+    viewModel {
+        CharacterDetailViewModel(
+            GetSingleCharacterUseCase(
+                repository = CharacterRepositoryImpl(
+                    characterRemoteDataSource = CharacterRemoteDataSourceImpl(
+                        characterApi = get(),
+                        allCharacterMapper = AllCharacterResponseToModelMapper(),
+                        characterMapper = CharacterResponseToModelMapper()
+                    )
+                )
+            )
+
+        )
+    }
 }
 
 val networkModule = module {

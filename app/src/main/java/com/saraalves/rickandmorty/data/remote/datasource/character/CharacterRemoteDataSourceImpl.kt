@@ -18,7 +18,7 @@ class CharacterRemoteDataSourceImpl(
         return flow { emit(allCharacterMapper.map(characterApi.getAllCharacters(page))) }.parseHttpError()
     }
 
-    override fun getSingleCharacter(id: Int): Flow<List<SingleCharacter>> {
+    override fun getSingleCharacter(id: Int?): Flow<SingleCharacter> {
         return flow { emit(characterMapper.map(characterApi.getSingleCharacter(id))) }.parseHttpError()
     }
 }

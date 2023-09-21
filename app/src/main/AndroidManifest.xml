@@ -18,7 +18,7 @@
         android:theme="@style/Theme.AppCompat"
         tools:targetApi="31">
         <activity
-            android:name=".presentation.character.DetailsActivity"
+            android:name=".presentation.character.compose.DetailsActivity"
             android:exported="false" />
         <activity
             android:name=".presentation.RickAndMortyActivity"

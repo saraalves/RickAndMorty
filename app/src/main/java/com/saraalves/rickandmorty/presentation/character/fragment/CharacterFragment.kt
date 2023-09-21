@@ -8,11 +8,10 @@ import android.view.ViewGroup
 import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.saraalves.rickandmorty.domain.model.response.character.AllCharacters
 import com.saraalves.rickandmorty.presentation.character.adapter.AllCharactersAdapter
 import com.saraalves.rickandmorty.R
 import com.saraalves.rickandmorty.databinding.FragmentCharacterBinding
-import com.saraalves.rickandmorty.presentation.character.DetailsActivity
+import com.saraalves.rickandmorty.presentation.character.compose.DetailsActivity
 import com.saraalves.rickandmorty.presentation.character.viewmodel.CharacterViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -44,9 +43,7 @@ class CharacterFragment : Fragment(R.layout.fragment_character) {
         adapter = AllCharactersAdapter { character ->
             character.let {
                 val intent = Intent(view?.context, DetailsActivity::class.java)
-                intent.putExtra("image", it.image)
-                intent.putExtra("name", it.name)
-                intent.putExtra("status", it.status)
+                intent.putExtra("id", it.id)
                 startActivity(intent)
             }
         }

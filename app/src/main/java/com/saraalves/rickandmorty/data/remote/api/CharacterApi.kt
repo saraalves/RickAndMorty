@@ -13,6 +13,6 @@ interface CharacterApi {
     suspend fun getAllCharacters(@Query("page") page: Int): AllCharacterResponse
 
     @KSerialization
-    @GET("character/id")
-    suspend fun getSingleCharacter(@Path("id") id: Int): List<CharacterResponse>
+    @GET("character/{id}")
+    suspend fun getSingleCharacter(@Path("id") id: Int?): CharacterResponse
 }

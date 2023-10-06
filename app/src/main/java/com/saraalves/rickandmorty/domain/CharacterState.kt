@@ -8,6 +8,6 @@ import com.saraalves.rickandmorty.domain.model.response.character.SingleCharacte
 
 data class CharacterState(
     val characterData: SingleCharacter? = null,
-    val error: StateError? = null,
+    val isError: StateError? = null,
     val isLoading: Boolean = false,
 )

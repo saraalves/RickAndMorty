@@ -13,12 +13,14 @@ class DetailsActivity : ComponentActivity() {
 
     // colocar dark mode
     // casos de erro e loading
+    //ajustar a toolbar
 
     private val viewModel: CharacterDetailViewModel by viewModel()
+    private var id: Int = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val id = intent.extras?.getInt("id") ?: 0
+        id = intent.extras?.getInt("id") ?: 0
         observeViewModel()
         viewModel.getSingleCharacter(id)
 
@@ -28,15 +30,22 @@ class DetailsActivity : ComponentActivity() {
         viewModel.singleCharacterState.observe(this) { state ->
             state.characterData?.let {
                 setContent {
-                    Surface {
-                        RickAndMortyTheme {
-                            DetailActivityComposable(it.name ?: "", it.image ?: "", it.status ?: "")
-                        }
-                    }
-                }
-            }
+                    DetailActivityComposable(it.name ?: "", it.image ?: "", it.status ?: "")
 
+            }
+        }
+        if (state.isLoading) {
+            setContent {
+                LoadingComposable()
+
+            }
+        }
+        state.isError?.let {
+            setContent {
+                ErrorComposable { viewModel.getSingleCharacter(id) }
+            }
         }
     }
 
+}
 }

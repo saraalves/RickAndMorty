@@ -58,6 +58,7 @@ class CharacterDetailViewModel(
                 .catch { handleError(it) }
                 .collect {
                     _singleCharacterState.value = characterState.copy(
+                        isError = null,
                         isLoading = false,
                         characterData = it
                     )
@@ -70,7 +71,7 @@ class CharacterDetailViewModel(
         when (error) {
             is ConnectionError -> _singleCharacterState.value = characterState.copy(
                 isLoading = false,
-                error = StateError(
+                isError = StateError(
                     title = "Ops, sem conexão",
                     message =  "Sem conexão com a internet."
                 )
@@ -78,7 +79,7 @@ class CharacterDetailViewModel(
 
             else -> _singleCharacterState.value = characterState.copy(
                 isLoading = false,
-                error = StateError(
+                isError = StateError(
                     title = "Opa! Erramos por aqui",
                     message =  "Tivemos uma falha no sistema e não conseguimos carregar essas informações."
                 )
